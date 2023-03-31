@@ -37,6 +37,34 @@ function login(username, password) {
     }
 }
 
+function register(newusername, newpassword, newname, newemail) {
+    //TODO: Check if username exist
+
+    let regmatch = dbUsers.find(element =>
+        element.username == newusername
+        )
+        if (regmatch) {
+            return "Username is used"
+        } else {
+
+        dbUsers.push({
+            username: newusername,
+            password: newpassword,
+            name: newname,
+            email: newemail,
+        })
+        return "Registration success"
+    }
+}
+
 //try to login
-console.log(login("Wee", "0000"))
+//console.log(login("Wee", "0000"))
+console.log(login("utem", "123456"))
 //login("wee", "0000")
+
+//try to register
+console.log(register("utem", "123456", "utem", "utem@gmail.com"))
+console.log(register("utem", "123456", "utem", "utem@gmail.com"))
+console.log(register("utem", "123456", "utem", "utem@gmail.com"))
+
+console.log(login("utem", "123456"))
